@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Firestore</title>
+
+
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <style>
+            table>tbody>tr>td {
+                text-align: left;
+            }
+
+            table>thead>tr>th {
+                text-align: center;
+            }
+
+            .btn-action {
+                width: 80px;
+            }
+        </style>
+    </head>
+
+    <body style="background:#A3A3A3;">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <h2 class="text-center">Firestore Tutorial</h2>
+        </nav>
+        <div class="container-fluid">
+            <div class="row pt-5">
+                <div class="col-md-4">
+                    <div class="p-1">
+
+                        <!-- Card -->
+                        <div class="card mx-xl-2 btn-outline-purple">
+                            <div class="card-header">
+                                <h2>Register</h2>
+                            </div>
+                            <!-- Card body -->
+                            <div class="card-body bg-light">
+                                <!-- Default form subscription -->
+                                <form id="addForm">
+                                    <input type="hidden" name="editid">
+                                    <label for="name" class="grey-text font-weight-light">Name</label>
+                                    <input type="text" id="name" name="name" class="form-control">
+                                    <br>
+
+                                    <label for="age" class="grey-text font-weight-light">Age</label>
+                                    <input type="text" id="age" name="age" class="form-control">
+                                    <br>
+
+                                    <label for="city" class="grey-text font-weight-light">City</label>
+                                    <input type="text" id="city" name="city" class="form-control">
+                                    <br>
+
+                                    <div class="text-center py-4 mt-3">
+                                        <button class="btn w-100 btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                                <!-- Default form subscription -->
+
+                            </div>
+                            <!-- Card body -->
+
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+
+                    <div class=" p-1">
+
+                        <!-- Card -->
+                        <div class="card mx-xl-2 btn-outline-purple">
+                            <div class="card-header">
+                                <h2>Results</h2>
+                            </div>
+                            <!-- Card body -->
+                            <div class="card-body bg-light">
+
+                                <table class="table table-striped table-bordered table-inverse dataTable" id="tbresult">
+                                    <thead class="thead-inverse">
+                                        <tr>
+                                            <th style="width:30px;">#</th>
+                                            <th>Name</th>
+                                            <th style="width:80px;">Age</th>
+                                            <th>City</th>
+                                            <th style="width:200px;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script src="app-datatable.js" charset="utf-8"></script>
+
+</html>

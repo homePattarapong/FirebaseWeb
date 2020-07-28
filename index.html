@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Firestore</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+       
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <style>
+            table > tbody > tr >  td{
+                text-align: left;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <h2 class="text-center">Firestore Tutorial</h2>
+            <hr>
+
+            <div class="p-4">
+
+                <!-- Card -->
+                <div class="card mx-xl-5 btn-outline-purple">
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <!-- Default form subscription -->
+                        <form id="addForm">
+                            <p class="h4 text-center">Register</p>
+
+                            <label for="name" class="grey-text font-weight-light">Name</label>
+                            <input type="text" id="name" name="name" class="form-control">
+                            <br>
+
+                            <label for="age" class="grey-text font-weight-light">Age</label>
+                            <input type="text" id="age" name="age" class="form-control">
+                            <br>
+
+                            <label for="city" class="grey-text font-weight-light">City</label>
+                            <input type="text" id="city" name="city" class="form-control">
+                            <br>
+
+                            <div class="text-center py-4 mt-3">
+                                <button class="btn w-100 btn-primary">Submit<i
+                                        class="fa fa-paper-plane-o ml-2"></i></button>
+                            </div>
+                        </form>
+                        <!-- Default form subscription -->
+
+                    </div>
+                    <!-- Card body -->
+
+                </div>
+                <!-- Card -->
+
+            </div>
+            <table class="table table-bordered text-center" id="tbresult">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            
+        </div>
+
+    </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script src="app.js" charset="utf-8"></script>
+    
+</html>

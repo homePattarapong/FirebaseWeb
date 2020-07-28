@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <title>Firebase</title>
+    </head>
+
+    <body>
+
+
+        <div class="container">
+            <h2>Firebase</h2>
+            <div class="row">
+                <div class="col-10">
+                    <input type="text" class="form-control" id="txtPost" placeholder="Text">
+                </div>
+                <div class="col-2">
+                    <button type="submit" onclick="saveData()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            <br /><br />
+            <ul class="list-group" id="listgroup">
+
+            </ul>
+
+        </div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+        <script>
+            // Initialize Firebase
+            var firebaseConfig = {
+                apiKey: "AIzaSyDJIS4igRLlvb79BSlAuY898MKNAXM5B7E",
+                authDomain: "lineoa-1e769.firebaseapp.com",
+                databaseURL: "https://lineoa-1e769.firebaseio.com",
+                projectId: "lineoa-1e769",
+                storageBucket: "lineoa-1e769.appspot.com",
+                messagingSenderId: "1065062036965",
+                appId: "1:1065062036965:web:2e8864f96ef3a5953dab0c"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+
+            var db = firebase.firestore();
+
+
+            db.collection("posts")
+                .onSnapshot(function (querySnapshot) {
+                    $("#listgroup").html('');
+                    querySnapshot.forEach(function (doc) {
+                        $("#listgroup").append('<li class="list-group-item">' + doc.data().txt + '</li>')
+                    });
+
+                });
+
+
+            function saveData() {
+                db.collection("posts").add({
+                    txt: $("#txtPost").val()
+                })
+                    .then(function (docRef) {
+                        console.log("Document written with ID: ", docRef.id);
+                    })
+                    .catch(function (error) {
+                        console.error("Error adding document: ", error);
+                    });
+            }
+
+        </script>
+
+    </body>
+
+</html>
